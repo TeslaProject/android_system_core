@@ -9,6 +9,8 @@ import /init.usb.rc
 import /init.${ro.hardware}.rc
 import /init.${ro.zygote}.rc
 import /init.trace.rc
+# Include Tesla's extra init file
+import /init.tesla.rc
 
 on early-init
     # Set init and its forked children's oom_adj.
@@ -591,7 +593,7 @@ service installd /system/bin/installd
 
 service flash_recovery /system/bin/install-recovery.sh
     class main
-    seclabel u:r:install_recovery:s0
+#    seclabel u:r:install_recovery:s0
     oneshot
 
 service racoon /system/bin/racoon
